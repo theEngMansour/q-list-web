@@ -56,6 +56,7 @@ export default function Ask() {
         if (validationErrors.length > 0) {
         setAlert({ messages: validationErrors, type: 'danger' });
         }
+
         return passed;
     };
 
@@ -70,9 +71,9 @@ export default function Ask() {
          *  needs the prisma tage as figure of top data 
         */
 
-        tags.map(e => {
-            delete e.label
-            e.tagId = e.value
+        tags.map(tag => {
+            delete tag.label
+            tag.tagId = tag.value
         })
         
         // tags = {value: , tagId}
