@@ -10,7 +10,7 @@ import { Box, Avatar } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Typography, Divider, Button } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
-import { usePost, vote } from 'hooks/usePost';
+import { createAnswer, vote } from 'hooks/usePost';
 import { StateContext } from './../StateContext';
 
 const useStyles = makeStyles((theme) => ({
@@ -199,7 +199,7 @@ function AnswerForm() {
         setLoading(true)
         try {
             if(!content) return setLoading(false)
-            await usePost(id, content)
+            await createAnswer(id, content)
         } catch (e) {
             setError(true)
         }

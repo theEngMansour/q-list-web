@@ -16,7 +16,7 @@ export function usePosts({ page = 1, sort = 'asc'}) {
 }
  
 // Added new Answer
-export async function usePost(id, content){
+export async function createAnswer(id, content){
     const url = `/api/post/answer`;
     const postId = Number(id)
     await axios.post(url, {postId , content})
