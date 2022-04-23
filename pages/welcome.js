@@ -9,7 +9,7 @@ export default function Index() {
   return (
     <div>
         <Hero />
-        <Services/>
+     
     </div>
   );
 }
@@ -38,84 +38,3 @@ const Hero = () => (
   </div>
 </div>)
 
-const Services = () => (
-  <div>
-    <section className="pb-20 bg-gray-300 -mt-24">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap">
-            <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                      <WhatshotIcon/>
-                    </div>
-                    <h6 className="text-xl font-semibold">ماهو كيوليست</h6>
-                    <p className="mt-2 mb-4 text-gray-600 text-right">
-                      هذا المجتمع ليس منتدى، بل مجموعة من المجتمعات المتخصصة تتم إدارته بشكل جماعي بناء على تصويت المستخدمين وذلك برفع المساهمات ذات المحتوى الجيد وخفض ترتيب المساهمات ذات المحتوى السيء. هذا الأسلوب بالإدارة أقرب الى الشبكة الاجتماعية المتخصصة من المنتديات التقليدية نهدف من خلاله الى بناء مجتمع عربي ناضج بأسلوب جديد ومختلف.
-                    </p>
-                </div>
-                </div>
-            </div>
-
-            <div className="w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
-                    <SelfImprovementIcon/>
-                    </div>
-                    <h6 className="text-xl font-semibold font-mono">
-                      I/O 
-                    </h6>
-                    <p className="mt-2 mb-4 text-gray-600 text-right">
-                    إن كنت تتساءل عن معنى <span className='font-mono text-blue-800'>I/O</span> فهي اختصار لكلمتي  <span className='font-mono text-blue-800'>Input/Output</span> ويمكن وصفها بأسلوب تواصل أنظمة الحواسيب فيما بينها وبالعالم الخارجي أيضاً، حيث يتم ادخال المعلومات الى هذه الأنظمة لتخرج الناتج في النهاية بعد معالجة المدخلات المرسلة.
-                    </p>
-                </div>
-                </div>
-            </div>
-            <div className="pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                    <div className="px-4 py-5 flex-auto">
-                        <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
-                          <AccessibilityNewIcon/>
-                        </div>
-                        <h6 className="text-xl font-semibold">
-                          حول
-                        </h6>
-                        <p className="mt-2 mb-4 text-gray-600 text-right">
-                          التطبيق منتج من منتجات فريق بي مبيديا تم بواسطة منصور أحمد,   
-                          يتألف بي ميديا من فريق طموح من مختلف الدول العربية
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-    <footer class="p-4 bg-white sm:p-6">
-      <div class="md:flex md:justify-between">
-        <div class="mb-6 md:mb-0">
-          {/* <img src="https://flowbite.com/docs/images/logo.svg" class="mr-4 h-10" alt="FlowBite Logo"> */}
-          <div><Image src="/logo-01.svg" width={100} height={100}/></div>
-          <span class="self-center text-xl font-semibold whitespace-nowrap font-mono">BeeMedia</span>
-        </div>
-      </div>
-      <div class="sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm text-gray-500 sm:text-center font-mono">© 2022 BeeMedia All Rights Reserved
-        </span>
-
-      </div>
-	  </footer>
-  </div>
-
-)
