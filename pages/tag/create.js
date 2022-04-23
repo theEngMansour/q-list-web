@@ -70,6 +70,7 @@ export default function Tag() {
   
     return (
         <MainLayout>
+            <h1 className="text-center text-2xl font-bold text-gray-500 mb-10">إضافة التصنيف</h1>
             {alert.map((alert, index) => (
                 <Alert key={index} severity='error' sx={{mb:2}}>
                     {alert}
