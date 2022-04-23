@@ -76,24 +76,7 @@ export default function Tag() {
                 </Alert>
             ))}
 
-            <div className="min-h-screen md:px-20 pt-6">
-                <div className=" bg-white rounded-md px-6 py-10 max-w-2xl mx-auto">
-                <h1 className="text-center text-2xl font-bold text-gray-500 mb-10">إضافة التصنيف</h1>
-                <div className="space-y-4">
-                    <div>
-                    <label className="text-lx">إسم التصنيف :</label>
-                    <input onChange={(text) => changeFormValue('name', text)} className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
-                    <label className="text-lx">إسم لطيف :</label>
-                    <input  onChange={(text) => changeFormValue('slug', text)} className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
-                    </div>
-                    <div>
-                    <label className="block mb-2 text-lg ">الوصف:</label>
-                    <textarea onChange={(text) => changeFormValue('description', text)} className="w-full p-4 text-gray-600 bg-indigo-50 outline-none rounded-md"></textarea>
-                    </div>
-                    <button className="px-6 py-2 mx-auto block rounded-md text-lg text-indigo-100 bg-blue-900" onClick={onSubmit}>إضافة التصنيف</button>
-                </div>
-                </div>
-            </div>
+
       </MainLayout>
     )
 }
