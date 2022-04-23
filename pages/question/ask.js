@@ -90,52 +90,5 @@ export default function Ask() {
         router.push(`/question/${id}`) 
     }
 
-    return (
-        <MainLayout title='أضف مشاركة'>
-            <Box p={2}>
-                {
-                    alert.messages == null ? '': (
-                        <Alert>
-                            {alert.messages.map(e => (<li>{e}</li>))}
-                        </Alert>
-                    )
-                }
-                <form onSubmit={onSubmit}>
-                    <TextInput
-                        variant="outlined"
-                        name="title"
-                        value={title}
-                        onChange={setTitle}
-                        label="input.title"
-                        inputProps={{
-                            autoComplete: 'off'
-                        }}
-                    />
-                    <TagsInput
-                        sx={{my:2}}
-                        label='input.tags'
-                        onChange={setTags}
-                        value={tags}
-                        options={tagsList.map(e => ({label: e.name, value: e.id}))}
-                    />
-                    <Box marginBottom={2}>
-                        {user && 
-                          <input className="border-2 border-blue-900 w-full h-28 mb-3 p-2 text-lg" placeholder={formatMessage({id: 'title.ask'})} 
-                           onChange={changeContenthandler}></input>
-                        }
-                    </Box>
-                    <Grid item xs={12}>
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            color="primary"
-                            disabled={loading}
-                            >
-                            <FormattedMessage id='btn.continue'/>
-                        </Button>
-                    </Grid>
-                </form>
-            </Box>
-        </MainLayout>
-    )
+    return <h1>H</h1>
 }
