@@ -96,7 +96,7 @@ export default function Ask() {
                 {
                     alert.messages == null ? '': (
                         <Alert>
-                            {alert.messages.map(e => (<li>{e}</li>))}
+                            {alert.messages.map((e, index) => (<li key={index}>{e}</li>))}
                         </Alert>
                     )
                 }
@@ -118,7 +118,10 @@ export default function Ask() {
                         value={tags}
                         options={tagsList.map(e => ({label: e.name, value: e.id}))}
                     />
-
+                    <Box marginBottom={2}>
+                        <input className="border-2 border-blue-900 w-full h-28 mb-3 p-2 text-lg" placeholder={formatMessage({id: 'title.ask'})} 
+                        onChange={changeContenthandler}></input>
+                    </Box>
                     <Grid item xs={12}>
                         <Button
                             type="submit"
