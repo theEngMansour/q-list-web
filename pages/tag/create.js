@@ -82,13 +82,13 @@ export default function Tag() {
                 <div className="space-y-4">
                     <div>
                     <label className="text-lx">إسم التصنيف :</label>
-                    <input type="text" placeholder="إسم التصنيف" onChange={(text) => changeFormValue('name', text)} id="title" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
+                    <input onChange={(text) => changeFormValue('name', text)} className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
                     <label className="text-lx">إسم لطيف :</label>
-                    <input type="text" placeholder="إسم لطيف" onChange={(text) => changeFormValue('slug', text)} id="title" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
+                    <input  onChange={(text) => changeFormValue('slug', text)} className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
                     </div>
                     <div>
                     <label className="block mb-2 text-lg ">الوصف:</label>
-                    <textarea cols="30" rows="10" onChange={(text) => changeFormValue('description', text)} placeholder="أكتب الوصف" className="w-full p-4 text-gray-600 bg-indigo-50 outline-none rounded-md"></textarea>
+                    <textarea onChange={(text) => changeFormValue('description', text)} className="w-full p-4 text-gray-600 bg-indigo-50 outline-none rounded-md"></textarea>
                     </div>
                     <button className="px-6 py-2 mx-auto block rounded-md text-lg text-indigo-100 bg-blue-900" onClick={onSubmit}>إضافة التصنيف</button>
                 </div>
