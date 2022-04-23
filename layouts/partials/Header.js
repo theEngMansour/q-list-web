@@ -36,7 +36,7 @@ export default function Header() {
             <Toolbar>
                 <Link href='/' passHref>
                     <Typography variant="h6" className={classes.title}>
-                        <Image src="/logo-q-01.svg" width={150} height={50} />
+                        <Image src="/logo-q-01.svg" width={150} height={50} alt="q-list" />
                     </Typography>
                 </Link>
 

@@ -193,7 +193,7 @@ function AnswerForm() {
     const { reloading, setReloading } = useContext(StateContext)
 
     //Submit
-    const onSubmitAnswer = async (event) => {
+    const handelranswer = async (event) => {
         event.preventDefault()
         //Loading
         setLoading(true)
@@ -215,7 +215,7 @@ function AnswerForm() {
 
     return (
         <Box p={2} className={classes.answerForm}>
-            <form onSubmit={onSubmitAnswer}>
+            <form onSubmit={handelranswer}>
                 <Box>
                     {   
                         !loading &&

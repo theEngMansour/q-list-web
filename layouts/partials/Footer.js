@@ -20,7 +20,7 @@ export default function Footer() {
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
             {/* <img src="https://flowbite.com/docs/images/logo.svg" class="mr-4 h-10" alt="FlowBite Logo"> */}
-            <div><Image src="/logo-bemedia.svg" width={100} height={100}/></div>
+            <div><Image src="/logo-bemedia.svg" width={100} height={100} alt="bemedia"/></div>
             <span style={{color: '#171dcd'}} class="self-center text-xl font-semibold whitespace-nowrap font-mono">BeeMedia</span>
           </div>
         </div>

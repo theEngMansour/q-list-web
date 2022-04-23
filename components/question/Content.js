@@ -10,6 +10,8 @@ const useStyles = makeStyles(() => ({
 export default function Content({ html }) {
     const classes = useStyles();
     return (
-        <div dangerouslySetInnerHTML={{ __html: html }} className={classes.root} />
+        <div /* dangerouslySetInnerHTML={{ __html: html }} */ className={classes.root}>
+            {html}
+        </div>
     );
 }
