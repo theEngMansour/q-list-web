@@ -130,7 +130,7 @@ export default function Ask() {
                     />
                     <Box marginBottom={2}>
                         {user && 
-                          <input id="m" className="border-2 border-blue-900 w-full h-28 mb-3 p-2 text-lg" placeholder={formatMessage({id: 'title.ask'})} 
+                          <input  className="border-2 border-blue-900 w-full h-28 mb-3 p-2 text-lg" placeholder={formatMessage({id: 'title.ask'})} 
                           value={content} onChange={changeContenthandler}></input>
                         }
                     </Box>
