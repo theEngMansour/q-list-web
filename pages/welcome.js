@@ -57,6 +57,22 @@ const Services = () => (
                 </div>
             </div>
 
+            <div className="w-full md:w-4/12 px-4 text-center">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div className="px-4 py-5 flex-auto">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+                    <SelfImprovementIcon/>
+                    </div>
+                    <h6 className="text-xl font-semibold font-mono">
+                      I/O 
+                    </h6>
+                    <p className="mt-2 mb-4 text-gray-600 text-right">
+                    إن كنت تتساءل عن معنى <span className='font-mono text-blue-800'>I/O</span> فهي اختصار لكلمتي  <span className='font-mono text-blue-800'>Input/Output</span> ويمكن وصفها بأسلوب تواصل أنظمة الحواسيب فيما بينها وبالعالم الخارجي أيضاً، حيث يتم ادخال المعلومات الى هذه الأنظمة لتخرج الناتج في النهاية بعد معالجة المدخلات المرسلة.
+                    </p>
+                </div>
+                </div>
+            </div>
+
         </div>
       </div>
     </section>
