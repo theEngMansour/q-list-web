@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  name          String   @db.VarChar(100)
+  email         String   @unique
+  password      String
+  posts         Post[]
+  answers       Answer[]
+  votePost      VotePost[]
+  voteAnswer    VoteAnswer[]
+}
+
+model VotePost {
+  user          User      @relation(fields: [userId], references: [id]) 
+  userId        Int
+  post          Post?     @relation(fields: [postId], references: [id]) 
+  postId        Int?   
+  user_post_id  Int
+  type          Int       @default(0)
+  @@id([user_post_id])
+}
+model VoteAnswer {
+  user            User      @relation(fields: [userId], references: [id]) 
+  userId          Int
+  answer          Answer?   @relation(fields: [answerId], references: [id]) 
+  answerId        Int?   
+  user_answer_id  Int 
+  type            Int       @default(0)
+  @@id([user_answer_id])
+}
+
+//enum Type {}
+
+model Post {
+  id            Int       @id @default(autoincrement())
+  user          User      @relation(fields: [userId], references: [id]) 
+  userId        Int
+  title         String
+  accepted      Boolean   @default(false)
+  content       String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  tags          tagsOnPosts[]
+  answers       Answer[]
+  votePost      VotePost[]
+}
+
+model Answer {
+  id              Int       @id @default(autoincrement())
+  post            Post      @relation(fields: [postId], references: [id]) 
+  postId          Int
+  user            User      @relation(fields: [userId], references: [id]) 
+  userId          Int
+  voteAnswer      VoteAnswer[]
+  content         String
+  answersCount    Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Tag {
+  id            Int         @id @default(autoincrement())
+  name          String
+  slug          String      @unique
+  description   String
+  posts         tagsOnPosts[]
+}
+
+model tagsOnPosts {
+  post       Post         @relation(fields: [postId], references: [id])
+  postId     Int 
+  tag        Tag          @relation(fields: [tagId], references: [id])
+  tagId      Int 
+  @@id([postId, tagId])
+}

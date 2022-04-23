@@ -1,0 +1,17 @@
+* {
+    font-family: 'NotoRegular';
+}
+
+@font-face { 
+    font-family: "NotoBold"; 
+    src: url(../public/fonts/NotoSansArabic-Bold.ttf); 
+}
+  
+@font-face { 
+    font-family: "NotoRegular"; 
+    src: url(../public/fonts/NotoSansArabic-Regular.ttf); 
+}
+
+.ck-editor__editable:not(.ck-editor__nested-editable) {
+    min-height: 160px;
+}
