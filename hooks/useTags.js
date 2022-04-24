@@ -12,8 +12,8 @@ export function useTags() {
    }
 }
 
-export default function useTag(slug) {
-    const { data, error } = useSWR(`/api/tag/${slug}`, fetcher)
+export default function useTag(slug, id) {
+    const { data, error } = useSWR(`/api/tag/${slug}?id=${id}`, fetcher)
     return {
         data,
         error

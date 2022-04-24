@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Show({params}) {
   const classes = useStyles()
   const router = useRouter();
-  const {data: tag} = useTag(params?.slug)
+  const {data: tag} = useTag(params?.slug, params?.id)
   const {mutate} = useSWRConfig()
 
   // useContext Reload page when update Answer
@@ -40,7 +40,7 @@ export default function Show({params}) {
 
   useEffect(() => {
     if (!params?.id) Router.push('/404')
-    mutate(`/api/tag/${params?.slug}`)
+    mutate(`/api/tag/${params?.slug}?id=${params?.id}`)
     //Update page when Added new answer
     if(reloading){ 
       setTimeout(() => {

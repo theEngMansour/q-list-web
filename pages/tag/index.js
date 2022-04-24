@@ -56,7 +56,7 @@ export default function Tags() {
                         {
                             tags.map(({ id, name, slug, description }) =>
                                 <Grid item sm={4} xs={12} key={id}>
-                                    <Link passHref href={`tag/${slug}`}>
+                                    <Link passHref href={`tag/${slug}?id=${id}`}>
                                         <Card variant="outlined">
                                             <CardActionArea>
                                                 <CardContent className={classes.card}>
