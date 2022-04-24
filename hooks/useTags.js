@@ -12,6 +12,14 @@ export function useTags() {
    }
 }
 
+export default function useTag(slug) {
+    const { data, error } = useSWR(`/api/tag/${slug}`, fetcher)
+    return {
+        data,
+        error
+    } 
+}
+
 export const tag = async (params) => {
     const { data } = await axios.post('/api/tag', params)
     return data?.data?.id

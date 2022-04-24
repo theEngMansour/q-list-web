@@ -1,15 +1,15 @@
 import React from 'react';
-import QList from 'components/QList';
-import Pages from 'components/Pages';
+import { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import prisma from 'lib/prisma';
-import { FormattedMessage } from 'react-intl';
 import { MainLayout } from 'layouts';
 import { useRouter } from 'next/router';
 import { makeStyles } from '@mui/styles';
-import { Button, Box, Typography, Grid, Card, CardActionArea, CardContent } from '@mui/material';
-
+import { Box, Typography, Grid, Card, CardActionArea, CardContent } from '@mui/material';
+import useTag from 'hooks/useTags'
+import { StateContext } from './../StateContext';
+import { useSWRConfig } from 'swr';
 
 const useStyles = makeStyles((theme) => ({
     titleContainer: {
@@ -29,24 +29,40 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-export default function Show({params: tag}) {
+export default function Show({params}) {
   const classes = useStyles()
   const router = useRouter();
+  const {data: tag} = useTag(params?.slug)
+  const {mutate} = useSWRConfig()
+
+  // useContext Reload page when update Answer
+  const {reloading, setReloading} = useContext(StateContext)
+
+  useEffect(() => {
+    if (!params?.id) Router.push('/404')
+    mutate(`/api/tag/${params?.slug}`)
+    //Update page when Added new answer
+    if(reloading){ 
+      setTimeout(() => {
+          setReloading(false)
+      }, 1000);
+    }
+  }, [params, reloading])
 
   return (
     <MainLayout>
       <Head>
-        <title>{tag?.name}</title>
+        <title>{tag?.item.name}</title>
       </Head>
       <Box className={classes.titleContainer}>
         <Typography variant="h5" className={classes.title}>
-          {tag?.name}
+          {tag?.item.name}
         </Typography>
       </Box>
  
       <Grid container spacing={3} className={classes.container}>
         {
-          tag?.posts.map((e) =>
+          tag?.item.posts.map((e) =>
             <Grid item sm={4} xs={6} key={e.id}>
               <Link passHref href={`/question/${e.post.id}`}>
                   <Card variant="outlined">
@@ -85,9 +101,6 @@ export async function getStaticProps({params}) {
   const item = await prisma.tag.findUnique({
     where: {
       slug: params.slug,
-    },
-    include: {
-      posts: { select: { post: true } }
     }
   })
   return {

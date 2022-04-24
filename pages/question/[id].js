@@ -123,7 +123,7 @@ function Answer({data: {id, content, createdAt, user}, voteCount, vote}) {
     return (
         <Box p={2}>
             <Box display="flex">
-               <Vote votesTotal={voteCount} vote={vote}/>
+               <Vote votesTotal={voteCount} auth={user? true : false} vote={vote}/>
                <Content html={content}/>
             </Box>
             <Box display="flex" marginTop={2}>
