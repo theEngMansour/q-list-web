@@ -14,13 +14,28 @@ export function usePosts({ page = 1, sort = 'asc'}) {
         loading: !data && !error,
     }
 }
- 
-// Added new Answer
+export default function usePost(id) {
+    const url = `/api/post/${id}`
+    const { data, error, mutate } = useSWR(url, fetcher)
+
+    const answer = async (id, content) => {
+        const postId = Number(id)
+        await axios.post('/api/post/answer', {postId , content})
+        await mutate({...data})
+    }
+    return {
+        data,
+        error,
+        answer
+    } 
+}
+
+/* // Added new Answer
 export async function createAnswer(id, content){
     const url = `/api/post/answer`;
     const postId = Number(id)
     await axios.post(url, {postId , content})
-}
+} */
 
 export async function vote(postId, answerId, type){
     const url = `/api/post/vote`;

@@ -10,7 +10,8 @@ import { Box, Avatar } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Typography, Divider, Button } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
-import { createAnswer, vote } from 'hooks/usePost';
+import usePost from 'hooks/usePost'
+import { vote} from 'hooks/usePost'
 import { StateContext } from './../StateContext';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,6 +38,9 @@ export default function Show({params}) {
     // useContext Reload page when update Answer
     const {reloading, setReloading} = useContext(StateContext)
 
+    // get
+    const {data: post, answer} = usePost(params?.id)
+    console.log(post)
     useEffect(() => {
         if (!params?.id) Router.push('/404')
         //Update page when Added new answer
@@ -69,21 +73,21 @@ export default function Show({params}) {
     };
 
     return (
-        <MainLayout title={params.title}>
+        <MainLayout title={post?.item?.title}>
             <Head>
-                <title>{params?.title}</title>
+                <title>{post?.item?.title}</title>
             </Head> 
             <Box display='flex' m={2}>
                 {
-                    <Vote votesTotal={voteCount(params.votePost)} auth={user? true : false} vote={(type) => handlarVote(type)}/>
+                    <Vote votesTotal={voteCount(post?.item?.votePost)} auth={user? true : false} vote={(type) => handlarVote(type)}/>
                 }
-                <Content html={params?.content}/>
+                <Content html={post?.item?.content}/>
             </Box>
-            <QuestionFooter user={params?.user} tags={params?.tags}/>
+            <QuestionFooter user={post?.item?.user} tags={post?.item?.tags}/>
             <Skeleton loading={loading}>
-                <Answers items={params.answers} /> 
+                <Answers items={post?.item?.answers} /> 
                 {
-                 user && <AnswerForm/>
+                 user && <AnswerForm onSubmit={answer}/>
                 }
             </Skeleton>
         </MainLayout>
@@ -179,7 +183,7 @@ function Answers({items}) {
 
 
 // Add new Answer
-function AnswerForm() {
+function AnswerForm({onSubmit}) {
     const classes = useStyles()
     const [content, setContent] = useState('')
     const [loading, setLoading] = useState(false)
@@ -199,7 +203,7 @@ function AnswerForm() {
         setLoading(true)
         try {
             if(!content) return setLoading(false)
-            await createAnswer(id, content)
+            await onSubmit(id, content)
         } catch (e) {
             setError(true)
         }
