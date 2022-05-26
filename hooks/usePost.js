@@ -26,7 +26,7 @@ export default function usePost(id) {
     return {
         data,
         error,
-        answer
+        answer,
     } 
 }
 
