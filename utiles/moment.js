@@ -1,5 +1,5 @@
-import 'moment/locale/ar'
-import moment from 'moment'
+import moment from 'moment';
+import 'moment/locale/ar';
 
 moment.locale('ar')
 
