@@ -7,7 +7,6 @@ import { FormattedMessage } from 'react-intl';
 import { TextInput } from 'components/inputs';
 import { useState } from 'react';
 import { login } from 'hooks/useAuth'
-import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 
 const useStyles = makeStyles(theme => ({
   avatar: {
@@ -45,7 +44,7 @@ export default function Login() {
   return (
     <AuthLayout>
       <Avatar className={classes.avatar}>
-        <AccessibilityNewIcon/>
+       A
       </Avatar>
       <Typography component="h1" variant="h5">
         <FormattedMessage id={'title.login'}/>
